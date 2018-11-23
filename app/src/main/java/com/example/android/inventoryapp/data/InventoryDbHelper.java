@@ -8,8 +8,6 @@ import com.example.android.inventoryapp.data.InventoryContract.InventoryEntry;
 
 public class InventoryDbHelper extends SQLiteOpenHelper {
 
-    public static final String LOG_TAG = InventoryDbHelper.class.getSimpleName();
-
     // Name of the database file
     private static final String DATABASE_NAME = "inventory.db";
 

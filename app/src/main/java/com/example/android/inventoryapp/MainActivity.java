@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         valuesSecond.put(InventoryEntry.COLUMN_SUPPLIER_PHONE_NUMBER, "1234567890");
 
         // inset the two new rows
-        long firstRowId = db.insert(InventoryEntry.TABLE_NAME, null, valuesOne);
-        long secondRowId = db.insert(InventoryEntry.TABLE_NAME, null, valuesSecond);
+        db.insert(InventoryEntry.TABLE_NAME, null, valuesOne);
+        db.insert(InventoryEntry.TABLE_NAME, null, valuesSecond);
     }
 }
