@@ -9,10 +9,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1">
+        <!-- display information for the inventory item -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <!-- the products name-->
             <TextView
                 android:id="@+id/product_name"
                 android:layout_width="wrap_content"
@@ -21,6 +24,7 @@
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="#2B3D4D" />
 
+            <!-- the products price-->
             <TextView
                 android:id="@+id/price"
                 android:layout_width="wrap_content"
@@ -29,6 +33,7 @@
                 android:textAppearance="?android:textAppearanceSmall"
                 android:textColor="#AEB6BD" />
 
+            <!-- the products quantity -->
             <TextView
                 android:id="@+id/quantity"
                 android:layout_width="wrap_content"
@@ -39,6 +44,7 @@
         </LinearLayout>
     </RelativeLayout>
 
+    <!-- Sale button -->
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"

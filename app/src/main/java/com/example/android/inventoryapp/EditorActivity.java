@@ -129,16 +129,24 @@ public class EditorActivity extends AppCompatActivity implements
         String supplierNameString = mSupplierName.getText().toString().trim();
         String supplierPhoneNumberString = mSupplierPhoneNumber.getText().toString().trim();
 
-        //
-        if (mCurrentInventoryUri == null
-                && TextUtils.isEmpty(productNameString)
-                && TextUtils.isEmpty(priceString)
-                && TextUtils.isEmpty(quantityString)
-                && TextUtils.isEmpty(supplierNameString)
-                && TextUtils.isEmpty(supplierPhoneNumberString)
-                ) {
-            // if no fields were modified escape this method early, we don't want to save
-            // an empty record
+        // don't save record without required fields
+        if (TextUtils.isEmpty(productNameString)) {
+            Toast.makeText(this, getString(R.string.product_name_required),
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // don't save record without required
+        if (TextUtils.isEmpty(priceString)) {
+            Toast.makeText(this, getString(R.string.price_is_required),
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // don't save record without required
+        if (TextUtils.isEmpty(quantityString)) {
+            Toast.makeText(this, getString(R.string.quntity_is_requried),
+                    Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -298,10 +306,8 @@ public class EditorActivity extends AppCompatActivity implements
      * Call supplier to order more
      */
     private void order() {
-        try
-        {
-            if(Build.VERSION.SDK_INT > 22)
-            {
+        try {
+            if (Build.VERSION.SDK_INT > 22) {
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
 
@@ -314,15 +320,12 @@ public class EditorActivity extends AppCompatActivity implements
                 callIntent.setData(Uri.parse("tel:" + mSupplierPhoneNumber.getText().toString()));
                 startActivity(callIntent);
 
-            }
-            else {
+            } else {
                 Intent callIntent = new Intent(Intent.ACTION_CALL);
                 callIntent.setData(Uri.parse("tel:" + mSupplierPhoneNumber.getText().toString()));
                 startActivity(callIntent);
             }
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
@@ -363,7 +366,7 @@ public class EditorActivity extends AppCompatActivity implements
                 InventoryEntry.COLUMN_PRICE,
                 InventoryEntry.COLUMN_QUANTITY,
                 InventoryEntry.COLUMN_SUPPLIER_NAME,
-                InventoryEntry.COLUMN_SUPPLIER_PHONE_NUMBER };
+                InventoryEntry.COLUMN_SUPPLIER_PHONE_NUMBER};
 
         // This loader will execute the ContentProvider's query method on a background thread
         return new CursorLoader(this,   // Parent activity context
@@ -421,6 +424,7 @@ public class EditorActivity extends AppCompatActivity implements
 
     /**
      * Show a dialog that warns the user there are unsaved changes that will be lost
+     *
      * @param discardButtonClickListener the click listener
      */
     private void showUnsavedChangesDialog(

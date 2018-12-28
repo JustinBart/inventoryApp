@@ -94,4 +94,7 @@
     <string name="sale">Sale</string>
     <string name="order">Order</string>
     <string name="order_more">Order More</string>
+    <string name="product_name_required">Product name is required</string>
+    <string name="price_is_required">Price is required</string>
+    <string name="quntity_is_requried">Quantity is required</string>
 </resources>
