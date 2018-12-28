@@ -14,4 +14,7 @@
 
     <!-- Primary dark color for the editor -->
     <color name="editorColorPrimaryDark">#394450</color>
+
+    <!-- Sale color -->
+    <color name="saleButton">#CC866A</color>
 </resources>

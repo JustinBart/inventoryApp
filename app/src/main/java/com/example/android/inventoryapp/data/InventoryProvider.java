@@ -79,7 +79,7 @@ public class InventoryProvider extends ContentProvider {
                         null, null, sortOrder);
                 break;
             default:
-                throw new IllegalArgumentException("Cannot query unknow URI " + uri);
+                throw new IllegalArgumentException("Cannot query unknown URI " + uri);
         }
 
         // set the notification URI on the Cursor

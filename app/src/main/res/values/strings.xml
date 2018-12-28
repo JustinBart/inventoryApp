@@ -91,4 +91,5 @@
     <string name="add_inventory">Add Inventory</string>
     <string name="remove_item">Remove item</string>
     <string name="add_item">Add item</string>
+    <string name="sale">Sale</string>
 </resources>
