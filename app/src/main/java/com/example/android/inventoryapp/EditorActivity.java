@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.LoaderManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -18,7 +19,6 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.android.inventoryapp.data.InventoryContract.InventoryEntry;
@@ -63,6 +63,23 @@ public class EditorActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editor);
+
+        FloatingActionButton plus = findViewById(R.id.fab_add);
+        FloatingActionButton minus = findViewById(R.id.fab_minus);
+
+        plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addOneQuantity();
+            }
+        });
+
+        minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                minusOneQuantity();
+            }
+        });
 
         // check to see if we're creating a new inventory item or editing one that exists
         Intent intent = getIntent();
@@ -198,6 +215,31 @@ public class EditorActivity extends AppCompatActivity implements
             menuItem.setVisible(false);
         }
         return true;
+    }
+
+    /**
+     * Add one to the quantity
+     */
+    private void addOneQuantity() {
+        Integer quantity = Integer.valueOf(mQuantity.getText().toString());
+        if (quantity < 0) {
+            quantity = 0;
+        }
+        quantity += 1;
+        mQuantity.setText(quantity.toString());
+    }
+
+    /**
+     * Subtract one from the quantity
+     */
+    private void minusOneQuantity() {
+        Integer quantity = Integer.valueOf(mQuantity.getText().toString());
+        if (quantity <= 0) {
+            quantity = 0;
+        } else {
+            quantity -= 1;
+        }
+        mQuantity.setText(quantity.toString());
     }
 
     @Override
