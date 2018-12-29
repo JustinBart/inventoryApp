@@ -97,4 +97,6 @@
     <string name="product_name_required">Product name is required</string>
     <string name="price_is_required">Price is required</string>
     <string name="quntity_is_requried">Quantity is required</string>
+    <string name="supplier_name_required">Supplier Name is required</string>
+    <string name="supplier_phone">Supplier phone is required</string>
 </resources>

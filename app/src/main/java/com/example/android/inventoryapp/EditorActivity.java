@@ -136,16 +136,30 @@ public class EditorActivity extends AppCompatActivity implements
             return;
         }
 
-        // don't save record without required
+        // don't save record without required fields
         if (TextUtils.isEmpty(priceString)) {
             Toast.makeText(this, getString(R.string.price_is_required),
                     Toast.LENGTH_LONG).show();
             return;
         }
 
-        // don't save record without required
+        // don't save record without required fields
         if (TextUtils.isEmpty(quantityString)) {
             Toast.makeText(this, getString(R.string.quntity_is_requried),
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // don't save record without required fields
+        if (TextUtils.isEmpty(supplierNameString)) {
+            Toast.makeText(this, getString(R.string.supplier_name_required),
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // don't save record without required fields
+        if (TextUtils.isEmpty(supplierPhoneNumberString)) {
+            Toast.makeText(this, getString(R.string.supplier_phone),
                     Toast.LENGTH_LONG).show();
             return;
         }
